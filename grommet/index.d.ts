@@ -372,106 +372,122 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface ImageProps {
-
+  interface ImageProps extends React.Props<Image> {
+    align?: {
+      bottom?: boolean;
+      left?: boolean;
+      right?: boolean;
+      top?: boolean;
+    };
+    alt?: string;
+    caption?: boolean | string;
+    fit?: 'contain' | 'cover';
+    full?: 'horizontal' | 'vertical' | boolean;
+    mask?: boolean;
+    size?: 'small' | 'medium' | 'large' | 'thumb';
+    src?: string;
+    title?: string;
   }
   export class Image extends React.Component<ImageProps, any>{
     render(): JSX.Element
   }
 
-  interface LabelProps {
+  interface LabelProps extends React.Props<Label> {
 
   }
   export class Label extends React.Component<LabelProps, any>{
     render(): JSX.Element
   }
 
-  interface LayerProps {
+  interface LayerProps extends React.Props<Layer> {
 
   }
   export class Layer extends React.Component<LayerProps, any>{
     render(): JSX.Element
   }
 
-  interface LegendProps {
+  interface LegendProps extends React.Props<Legend> {
 
   }
   export class Legend extends React.Component<LegendProps, any>{
     render(): JSX.Element
   }
 
-  interface ListProps {
+  interface ListProps extends React.Props<List> {
 
   }
   export class List extends React.Component<ListProps, any>{
     render(): JSX.Element
   }
 
-  interface ListItemProps {
+  interface ListItemProps extends React.Props<ListItem> {
 
   }
   export class ListItem extends React.Component<ListItemProps, any>{
     render(): JSX.Element
   }
 
-  interface LoginFormProps {
+  interface LoginFormProps extends React.Props<LoginForm> {
 
   }
   export class LoginForm extends React.Component<LoginFormProps, any>{
     render(): JSX.Element
   }
 
-  interface MapProps {
+  interface MapProps extends React.Props<Map> {
 
   }
   export class Map extends React.Component<MapProps, any>{
     render(): JSX.Element
   }
 
-  interface MarkdownProps {
+  interface MarkdownProps extends React.Props<Markdown> {
 
   }
   export class Markdown extends React.Component<MarkdownProps, any>{
     render(): JSX.Element
   }
 
-  interface MenuProps {
+  interface MenuProps extends React.Props<Menu> {
 
   }
   export class Menu extends React.Component<MenuProps, any>{
     render(): JSX.Element
   }
 
-  interface MeterProps {
+  interface MeterProps extends React.Props<Meter> {
 
   }
   export class Meter extends React.Component<MeterProps, any>{
     render(): JSX.Element
   }
 
-  interface NotificationProps {
+  interface NotificationProps extends React.Props<Notification> {
 
   }
-  export class Notification extends React.Component<NotificationProps, any>{
+  export class Notification extends React.Component<NotificationProps, any> {
     render(): JSX.Element
   }
 
-  interface NumberInputProps {
-    render(): JSX.Element
+  interface NumberInputProps extends React.Props<NumberInput> {
+
   }
   export class NumberInput extends React.Component<NumberInputProps, any>{
-
+    render(): JSX.Element
   }
 
-  interface ObjectProps {
-
+  interface ObjectProps extends React.Props<Object>  {
+    data: {};
   }
   export class Object extends React.Component<ObjectProps, any>{
     render(): JSX.Element
   }
 
-  interface ParagraphProps {
-
+  interface ParagraphProps extends React.Props<Paragraph> {
+    align?: 'start' | 'center' | 'end';
+    margin?: 'none' | 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large' | 'xlarge';
+    width?: 'small' | 'medium' | 'large';
   }
   export class Paragraph extends React.Component<ParagraphProps, any>{
     render(): JSX.Element
@@ -666,22 +682,59 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface ValueProps {
-
+  interface ValueProps extends React.Props<Value> {
+    active?: boolean;
+    align?: 'start' | 'center' | 'end';
+    announce?: boolean;
+    colorIndex?: string;
+    icon?: React.ReactNode;
+    label?: string | React.ReactNode;
+    onClick?: Function;
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+    trendIcon?: React.ReactNode;
+    value?: React.ReactNode | number | string;
+    units?: React.ReactNode | string;
   }
   export class Value extends React.Component<ValueProps, any>{
     render(): JSX.Element
   }
 
-  interface VideoProps {
-
+  interface VideoProps extends React.Props<Video> {
+    align?: {
+      bottom?: boolean;
+      left?: boolean;
+      right?: boolean;
+      top?: boolean;
+    },
+    allowFullScreen?: boolean;
+    autoPlay?: boolean;
+    colorIndex?: string;
+    fit?: 'contain' | 'cover';
+    full?: boolean | 'horizontal' | 'vertical';
+    loop?: boolean;
+    muted?: boolean;
+    poster?: string;
+    shareLink?: string;
+    shareHeadline?: string;
+    shareText?: string;
+    showControls?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    timeline?: Array<{
+      label?: string;
+      time?: number;
+    }>;
+    title?: React.ReactNode;
   }
   export class Video extends React.Component<VideoProps, any>{
     render(): JSX.Element
   }
 
-  interface WorldMapProps {
-
+  interface WorldMapProps extends React.Props<WorldMap> {
+    series?: Array<{
+      continent?: 'NorthAmerica' | 'SouthAmerica' | 'Europe' | 'Africa' | 'Asia' | 'Australia';
+      colorIndex?: string;
+      onClick?: Function;
+    }>;
   }
   export class WorldMap extends React.Component<WorldMapProps, any>{
     render(): JSX.Element
