@@ -1,0 +1,15 @@
+{
+  "name": "grommet-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript bindings for the grommet-ux library",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/RyanCCollins/grommet-typescript",
+    "type": "git"
+  },
+  "devDependencies": {
+    "types-publisher": "Microsoft/types-publisher#production"
+  },
+  "author": "Ryan Collins <rccproductions@mac.com>",
+  "license": "APACHE"
+}
