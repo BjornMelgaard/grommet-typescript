@@ -399,15 +399,41 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface LayerProps extends React.Props<Layer> {
-
+  interface LayerContext {
+    router?: any;
+    history?: {};
+    intl?: {};
+    store?: {};
   }
-  export class Layer extends React.Component<LayerProps, any>{
+  interface LayerProps extends React.Props<Layer> {
+    align?: 'center' | 'top' | 'bottom' | 'left' | 'right';
+    closer?: React.ReactNode | boolean;
+    flush?: boolean;
+    hidden?: boolean;
+    peek?: boolean;
+    onClose?: Function;
+  }
+  export class Layer extends React.Component<LayerProps, any> {
+    context: LayerContext
     render(): JSX.Element
   }
 
   interface LegendProps extends React.Props<Legend> {
-
+    activeIndex?: number;
+    announce?: boolean;
+    onActive?: Function;
+    series: Array<{
+      label?: string;
+      value?: number | React.ReactNode;
+      units?: number | React.ReactNode | { prefix?: string, suffix?: string };
+      colorIndex?: number | string;
+      onClick?: Function;
+    }>;
+    total?: boolean | React.ReactNode;
+    units?: string | {
+      prefix?: string;
+      suffix?: string;
+    };
   }
   export class Legend extends React.Component<LegendProps, any>{
     render(): JSX.Element
