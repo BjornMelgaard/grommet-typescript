@@ -14,8 +14,9 @@ declare namespace GrommetBoxTypes {
 }
 
 declare namespace Grommet {
+  type RestProps = any;
 
-  interface AccordionProps {
+  interface AccordionProps extends React.Props<Accordion> {
     active?: number | Array<number>;
     animate?: boolean;
     onActive?: Function;
@@ -25,7 +26,7 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface AccordionPanelProps {
+  interface AccordionPanelProps extends React.Props<AccordionPanel> {
     a11yTitle?: string;
     active?: boolean;
     animate?: boolean;
@@ -37,7 +38,7 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface AnchorProps {
+  interface AnchorProps extends React.Props<Anchor> {
     a11yTitle?: string;
     align?: 'start' | 'center' | 'end';
     animateIcon?: boolean;
@@ -64,7 +65,7 @@ declare namespace Grommet {
     duration?: number;
     delay?: number;
   };
-  interface AnimateProps {
+  interface AnimateProps extends React.Props<Animate> {
     component?: string | Function;
     enter?: AnimationDetails;
     keep?: boolean;
@@ -75,15 +76,15 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface AppProps {
+  interface AppProps extends React.Props<App> {
     centered?: boolean;
     inline?: boolean;
   }
-  export class AppProps extends React.Component<AppProps, any> {
+  export class App extends React.Component<AppProps, any> {
     render(): JSX.Element
   }
 
-  interface ArticleProps extends BoxProps<{ next?: string; previous?: string; }> {
+  interface ArticleProps extends BoxProps<Article> {
     controls?: boolean;
     onProgress?: Function;
     onSelect?: Function;
@@ -94,8 +95,8 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  export interface BoxProps<T> {
-    a11yTitle?: string | T;
+  export interface BoxProps<T> extends React.Props<T> {
+    a11yTitle?: string | any;
     announce?: boolean;
     align?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
     alignContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'stretch';
@@ -144,11 +145,11 @@ declare namespace Grommet {
     texture?: React.ReactNode | string;
     wrap?: boolean;
   }
-  export class Box extends React.Component<BoxProps<any>, any>{
+  export class Box extends React.Component<BoxProps<Box>, any>{
     render(): JSX.Element
   }
 
-  interface ButtonProps {
+  interface ButtonProps extends React.Props<Button> {
     a11yTitle?: string;
     accent?: boolean;
     align?: 'start' | 'center' | 'end';
@@ -169,7 +170,7 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface CardProps extends BoxProps<any> {
+  interface CardProps extends BoxProps<Card> {
     contentPad?: GrommetBoxTypes.PadSizes | {
       between?: GrommetBoxTypes.PadSizes;
       horizontal?: GrommetBoxTypes.PadSizes;
@@ -189,7 +190,7 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface CarouselProps {
+  interface CarouselProps extends React.Props<Carousel> {
     a11yTitle?: string;
     autoplay?: boolean;
     autoplaySpeed?: number;
@@ -200,107 +201,172 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface chartProps {
-
-  }
-  export class chart extends React.Component<chartProps, any>{
-    render(): JSX.Element
-  }
-
-  interface CheckBoxProps {
-
+  interface CheckBoxProps extends React.Props<CheckBox> {
+    checked?: boolean;
+    disabled?: boolean;
+    label?: React.ReactNode;
+    name?: string;
+    onChange?: Function;
+    reverse?: boolean;
+    toggle?: boolean;
   }
   export class CheckBox extends React.Component<CheckBoxProps, any>{
     render(): JSX.Element
   }
 
-  interface ColumnsProps {
-
+  interface ColumnsProps extends React.Props<Columns> {
+    justify?: 'start' | 'center' | 'between' | 'end';
+    margin?: 'small' | 'medium' | 'large';
+    masonry?: boolean;
+    maxCount?: number;
+    responsive?: boolean;
+    size?: 'small' | 'medium' | 'large';
   }
 
   export class Columns extends React.Component<ColumnsProps, any>{
     render(): JSX.Element
   }
 
-  interface DateTimeProps {
-
+  interface DateTimeProps extends React.Props<DateTime> {
+    format?: string;
+    id?: string;
+    name?: string;
+    onChange?: Function;
+    step?: number;
+    value?: string | {};
   }
   export class DateTime extends React.Component<DateTimeProps, any>{
     render(): JSX.Element
   }
 
-  interface DistributionProps {
-
+  interface DistributionProps extends React.Props<Distribution> {
+    a11yTitle?: string;
+    full?: boolean;
+    series?: Array<{
+      label?: React.ReactNode;
+      value: number;
+      colorIndex?: string;
+      important?: boolean;
+      onClick?: Function;
+      icon?: {
+        width?: number;
+        height?: number;
+        svgElement?: React.ReactNode;
+      }
+    }>
+    size?: 'small' | 'medium' | 'large' | 'full';
+    units?: string;
+    vertical?: boolean;
   }
   export class Distribution extends React.Component<DistributionProps, any>{
     render(): JSX.Element
   }
 
-  interface FooterProps {
-
+  interface FooterProps extends BoxProps<Footer> {
+    fixed?: boolean;
+    float?: boolean;
+    primary?: boolean;
+    size: 'small' | 'medium' | 'large';
   }
   export class Footer extends React.Component<FooterProps, any>{
     render(): JSX.Element
   }
 
-  interface FormProps {
-
+  type FormPadding = 'none' | 'small' | 'medium' | 'large';
+  interface FormProps extends React.Props<Form> {
+    compact?: boolean;
+    fill?: boolean;
+    onSubmit: Function;
+    pad?: FormPadding | { horizontal?: FormPadding; vertical?: FormPadding };
   }
   export class Form extends React.Component<FormProps, any>{
     render(): JSX.Element
   }
 
-  interface FormattedMessageProps {
-
+  interface FormattedMessageProps extends React.Props<FormattedMessage> {
+    id: string;
+    defaultMessage?: string;
   }
   export class FormattedMessage extends React.Component<FormattedMessageProps, any>{
     render(): JSX.Element
   }
 
-  interface FormFieldProps {
-
+  interface FormFieldProps extends React.Props<FormField> {
+    error?: React.ReactNode;
+    help?: React.ReactNode;
+    hidden?: boolean;
+    htmlFor?: string;
+    label?: React.ReactNode;
+    size?: 'medium' | 'large';
+    strong?: boolean;
   }
   export class FormField extends React.Component<FormFieldProps, any>{
     render(): JSX.Element
   }
 
-  interface FormFieldsProps {
-
+  interface FormFieldsProps extends React.Props<FormFields> {
+    children?: React.ReactNode;
+    className?: string;
   }
   export class FormFields extends React.Component<FormFieldsProps, any>{
     render(): JSX.Element
   }
 
-  interface GrommetProps {
-
+  interface GrommetProps extends React.Props<Grommet> {
+    children?: React.ReactNode;
+    className?: string;
   }
   export class Grommet extends React.Component<GrommetProps, any>{
     render(): JSX.Element
   }
 
-  interface HeaderProps {
-
+  interface HeaderProps extends BoxProps<Header> {
+    fixed?: boolean;
+    float?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    splash?: boolean;
   }
   export class Header extends React.Component<HeaderProps, any>{
     render(): JSX.Element
   }
 
-  interface HeadingProps {
-
+  interface HeadingProps extends React.Props<Heading> {
+    align?: 'start' | 'center' | 'end';
+    margin?: 'none' | 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large';
+    strong?: boolean;
+    tag?: string;
+    truncate?: boolean;
+    uppercase?: boolean;
   }
   export class Heading extends React.Component<HeadingProps, any>{
     render(): JSX.Element
   }
 
-  interface HeadlineProps {
-
+  interface HeadlineProps extends React.Props<Headline> {
+    align: 'start' | 'center' | 'end';
+    margin?: 'none' | 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large' | 'xlarge';
+    strong?: boolean;
   }
   export class Headline extends React.Component<HeadlineProps, any>{
     render(): JSX.Element
   }
 
-  interface HeroProps {
-
+  interface HeroProps extends React.Props<Hero> {
+    background?: React.ReactElement<any>;
+    backgroundColorIndex?: string;
+    size?: 'small' | 'medium' | 'large';
+    // below props are all deprecated
+    backgroundImage?: string;
+    backgroundPosition?: 'left' | 'center' | 'right';
+    backgroundVideo?: React.ReactElement<any>;
+    colorIndex?: string;
+    flush?: boolean;
+    image?: string;
+    justify?: 'start' | 'center' | 'end';
+    responsiveBackgroundPosition?: 'left' | 'center' | 'right';
+    separator?: boolean;
   }
   export class Hero extends React.Component<HeroProps, any>{
     render(): JSX.Element
