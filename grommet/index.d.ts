@@ -23,9 +23,12 @@ declare namespace Grommet {
     openMulti?: boolean;
   }
   export class Accordion extends React.Component<AccordionProps, any> {
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
+  interface AccordionPanelContext {
+    intl?: {};
+  }
   interface AccordionPanelProps extends React.Props<AccordionPanel> {
     a11yTitle?: string;
     active?: boolean;
@@ -35,9 +38,13 @@ declare namespace Grommet {
     pad?: any;
   }
   export class AccordionPanel extends React.Component<AccordionPanelProps, any> {
-    render(): JSX.Element
+    context: AccordionPanelContext;
+    render(): JSX.Element;
   }
 
+  interface AnchorContext {
+    intl?: {};
+  }
   interface AnchorProps extends React.Props<Anchor> {
     a11yTitle?: string;
     align?: 'start' | 'center' | 'end';
@@ -56,7 +63,8 @@ declare namespace Grommet {
     target?: string;
   }
   export class Anchor extends React.Component<AnchorProps, any> {
-    render(): JSX.Element
+    context: AnchorContext;
+    render(): JSX.Element;
   }
 
   type AnimationType = 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'jiggle';
@@ -73,7 +81,7 @@ declare namespace Grommet {
     visible?: 'scroll' | boolean;
   }
   export class Animate extends React.Component<AnimateProps, any> {
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
   interface AppProps extends React.Props<App> {
@@ -81,7 +89,7 @@ declare namespace Grommet {
     inline?: boolean;
   }
   export class App extends React.Component<AppProps, any> {
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
   interface ArticleProps extends BoxProps<Article> {
@@ -91,8 +99,8 @@ declare namespace Grommet {
     scrollStep?: boolean;
     selected?: number;
   }
-  export class Article extends React.Component<ArticleProps, any>{
-    render(): JSX.Element
+  export class Article extends React.Component<ArticleProps, any> {
+    render(): JSX.Element;
   }
 
   export interface BoxProps<T> extends React.Props<T> {
@@ -145,8 +153,12 @@ declare namespace Grommet {
     texture?: React.ReactNode | string;
     wrap?: boolean;
   }
-  export class Box extends React.Component<BoxProps<Box>, any>{
-    render(): JSX.Element
+  interface BoxContext {
+    intl?: {};
+  }
+  export class Box extends React.Component<BoxProps<Box>, any> {
+    context: BoxContext;
+    render(): JSX.Element;
   }
 
   interface ButtonProps extends React.Props<Button> {
@@ -166,8 +178,8 @@ declare namespace Grommet {
     secondary?: boolean;
     type?: 'button' | 'reset' | 'submit';
   }
-  export class Button extends React.Component<ButtonProps, any>{
-    render(): JSX.Element
+  export class Button extends React.Component<ButtonProps, any> {
+    render(): JSX.Element;
   }
 
   interface CardProps extends BoxProps<Card> {
@@ -186,8 +198,8 @@ declare namespace Grommet {
     truncate?: boolean;
     video?: { source: string, type?: string } | React.ReactElement<any>;
   }
-  export class Card extends React.Component<CardProps, any>{
-    render(): JSX.Element
+  export class Card extends React.Component<CardProps, any> {
+    render(): JSX.Element;
   }
 
   interface CarouselProps extends React.Props<Carousel> {
@@ -197,8 +209,8 @@ declare namespace Grommet {
     infinite?: boolean;
     persistentNav?: boolean;
   }
-  export class Carousel extends React.Component<CarouselProps, any>{
-    render(): JSX.Element
+  export class Carousel extends React.Component<CarouselProps, any> {
+    render(): JSX.Element;
   }
 
   interface CheckBoxProps extends React.Props<CheckBox> {
@@ -210,8 +222,8 @@ declare namespace Grommet {
     reverse?: boolean;
     toggle?: boolean;
   }
-  export class CheckBox extends React.Component<CheckBoxProps, any>{
-    render(): JSX.Element
+  export class CheckBox extends React.Component<CheckBoxProps, any> {
+    render(): JSX.Element;
   }
 
   interface ColumnsProps extends React.Props<Columns> {
@@ -223,8 +235,8 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large';
   }
 
-  export class Columns extends React.Component<ColumnsProps, any>{
-    render(): JSX.Element
+  export class Columns extends React.Component<ColumnsProps, any> {
+    render(): JSX.Element;
   }
 
   interface DateTimeProps extends React.Props<DateTime> {
@@ -235,8 +247,8 @@ declare namespace Grommet {
     step?: number;
     value?: string | {};
   }
-  export class DateTime extends React.Component<DateTimeProps, any>{
-    render(): JSX.Element
+  export class DateTime extends React.Component<DateTimeProps, any> {
+    render(): JSX.Element;
   }
 
   interface DistributionProps extends React.Props<Distribution> {
@@ -258,8 +270,8 @@ declare namespace Grommet {
     units?: string;
     vertical?: boolean;
   }
-  export class Distribution extends React.Component<DistributionProps, any>{
-    render(): JSX.Element
+  export class Distribution extends React.Component<DistributionProps, any> {
+    render(): JSX.Element;
   }
 
   interface FooterProps extends BoxProps<Footer> {
@@ -268,8 +280,8 @@ declare namespace Grommet {
     primary?: boolean;
     size: 'small' | 'medium' | 'large';
   }
-  export class Footer extends React.Component<FooterProps, any>{
-    render(): JSX.Element
+  export class Footer extends React.Component<FooterProps, any> {
+    render(): JSX.Element;
   }
 
   type FormPadding = 'none' | 'small' | 'medium' | 'large';
@@ -279,16 +291,16 @@ declare namespace Grommet {
     onSubmit: Function;
     pad?: FormPadding | { horizontal?: FormPadding; vertical?: FormPadding };
   }
-  export class Form extends React.Component<FormProps, any>{
-    render(): JSX.Element
+  export class Form extends React.Component<FormProps, any> {
+    render(): JSX.Element;
   }
 
   interface FormattedMessageProps extends React.Props<FormattedMessage> {
     id: string;
     defaultMessage?: string;
   }
-  export class FormattedMessage extends React.Component<FormattedMessageProps, any>{
-    render(): JSX.Element
+  export class FormattedMessage extends React.Component<FormattedMessageProps, any> {
+    render(): JSX.Element;
   }
 
   interface FormFieldProps extends React.Props<FormField> {
@@ -300,24 +312,24 @@ declare namespace Grommet {
     size?: 'medium' | 'large';
     strong?: boolean;
   }
-  export class FormField extends React.Component<FormFieldProps, any>{
-    render(): JSX.Element
+  export class FormField extends React.Component<FormFieldProps, any> {
+    render(): JSX.Element;
   }
 
   interface FormFieldsProps extends React.Props<FormFields> {
     children?: React.ReactNode;
     className?: string;
   }
-  export class FormFields extends React.Component<FormFieldsProps, any>{
-    render(): JSX.Element
+  export class FormFields extends React.Component<FormFieldsProps, any> {
+    render(): JSX.Element;
   }
 
   interface GrommetProps extends React.Props<Grommet> {
     children?: React.ReactNode;
     className?: string;
   }
-  export class Grommet extends React.Component<GrommetProps, any>{
-    render(): JSX.Element
+  export class Grommet extends React.Component<GrommetProps, any> {
+    render(): JSX.Element;
   }
 
   interface HeaderProps extends BoxProps<Header> {
@@ -326,8 +338,8 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large';
     splash?: boolean;
   }
-  export class Header extends React.Component<HeaderProps, any>{
-    render(): JSX.Element
+  export class Header extends React.Component<HeaderProps, any> {
+    render(): JSX.Element;
   }
 
   interface HeadingProps extends React.Props<Heading> {
@@ -339,8 +351,8 @@ declare namespace Grommet {
     truncate?: boolean;
     uppercase?: boolean;
   }
-  export class Heading extends React.Component<HeadingProps, any>{
-    render(): JSX.Element
+  export class Heading extends React.Component<HeadingProps, any> {
+    render(): JSX.Element;
   }
 
   interface HeadlineProps extends React.Props<Headline> {
@@ -349,8 +361,8 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large' | 'xlarge';
     strong?: boolean;
   }
-  export class Headline extends React.Component<HeadlineProps, any>{
-    render(): JSX.Element
+  export class Headline extends React.Component<HeadlineProps, any> {
+    render(): JSX.Element;
   }
 
   interface HeroProps extends React.Props<Hero> {
@@ -368,8 +380,8 @@ declare namespace Grommet {
     responsiveBackgroundPosition?: 'left' | 'center' | 'right';
     separator?: boolean;
   }
-  export class Hero extends React.Component<HeroProps, any>{
-    render(): JSX.Element
+  export class Hero extends React.Component<HeroProps, any> {
+    render(): JSX.Element;
   }
 
   interface ImageProps extends React.Props<Image> {
@@ -388,15 +400,15 @@ declare namespace Grommet {
     src?: string;
     title?: string;
   }
-  export class Image extends React.Component<ImageProps, any>{
-    render(): JSX.Element
+  export class Image extends React.Component<ImageProps, any> {
+    render(): JSX.Element;
   }
 
   interface LabelProps extends React.Props<Label> {
 
   }
-  export class Label extends React.Component<LabelProps, any>{
-    render(): JSX.Element
+  export class Label extends React.Component<LabelProps, any> {
+    render(): JSX.Element;
   }
 
   interface LayerContext {
@@ -415,7 +427,7 @@ declare namespace Grommet {
   }
   export class Layer extends React.Component<LayerProps, any> {
     context: LayerContext
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
   interface LegendProps extends React.Props<Legend> {
@@ -435,8 +447,8 @@ declare namespace Grommet {
       suffix?: string;
     };
   }
-  export class Legend extends React.Component<LegendProps, any>{
-    render(): JSX.Element
+  export class Legend extends React.Component<LegendProps, any> {
+    render(): JSX.Element;
   }
 
   interface ListContext {
@@ -455,8 +467,8 @@ declare namespace Grommet {
   }
 
   interface ListItemProps extends BoxProps<ListItem> {}
-  export class ListItem extends React.Component<ListItemProps, any>{
-    render(): JSX.Element
+  export class ListItem extends React.Component<ListItemProps, any> {
+    render(): JSX.Element;
   }
 
   interface LoginFormProps extends React.Props<LoginForm> {
@@ -515,7 +527,7 @@ declare namespace Grommet {
       props?: {};
     };
   }
-  export class Markdown extends React.Component<MarkdownProps, any>{
+  export class Markdown extends React.Component<MarkdownProps, any> {
     render(): JSX.Element;
   }
 
@@ -614,14 +626,14 @@ declare namespace Grommet {
     step?: number;
     value?: number | string;
   }
-  export class NumberInput extends React.Component<NumberInputProps, any>{
+  export class NumberInput extends React.Component<NumberInputProps, any> {
     render(): JSX.Element
   }
 
   interface ObjectProps extends React.Props<Object>  {
     data: {};
   }
-  export class Object extends React.Component<ObjectProps, any>{
+  export class Object extends React.Component<ObjectProps, any> {
     render(): JSX.Element
   }
 
@@ -631,7 +643,7 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large' | 'xlarge';
     width?: 'small' | 'medium' | 'large';
   }
-  export class Paragraph extends React.Component<ParagraphProps, any>{
+  export class Paragraph extends React.Component<ParagraphProps, any> {
     render(): JSX.Element
   }
 
@@ -641,7 +653,7 @@ declare namespace Grommet {
     credit?: string | React.ReactElement<any>;
     emphasizeCredit?: boolean;
   }
-  export class Quote extends React.Component<QuoteProps, any>{
+  export class Quote extends React.Component<QuoteProps, any> {
     render(): JSX.Element
   }
 
@@ -655,7 +667,7 @@ declare namespace Grommet {
     onChange?: Function;
     value?: string;
   }
-  export class RadioButton extends React.Component<RadioButtonProps, any>{
+  export class RadioButton extends React.Component<RadioButtonProps, any> {
     render(): JSX.Element
   }
 
@@ -694,172 +706,285 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
+  interface SearchInputContext {
+    intl?: any;
+  }
+  type SearchInputValue = { label?: string; value?: string };
   interface SearchInputProps extends React.Props<SearchInput> {
-
+    defaultValue?: SearchInputValue | string;
+    id?: string;
+    name?: string;
+    onDOMChange?: Function;
+    onSelect?: Function;
+    placeHolder?: string;
+    suggestions?: Array<SearchInputValue | string>;
+    value?: SearchInputValue | string;
   }
-  export class SearchInput extends React.Component<SearchInputProps, any>{
+  export class SearchInput extends React.Component<SearchInputProps, any> {
+    context: SearchInputContext;
+    render(): JSX.Element;
+  }
+
+  interface SectionProps extends BoxProps<Section> {}
+  export class Section extends React.Component<SectionProps, any> {
     render(): JSX.Element
   }
 
-  interface SectionProps {
-
+  type SelectValueType = { label?: string; value?: any; } | string | number;
+  interface SelectProps extends React.Props<Select> {
+    inline?: boolean;
+    multiple?: boolean;
+    onSearch?: Function;
+    onChange?: Function;
+    placeHolder?: string;
+    options: Array<SelectValueType>;
+    value?: SelectValueType | Array<SelectValueType>;
   }
-  export class Section extends React.Component<SectionProps, any>{
+  export class Select extends React.Component<SelectProps, any> {
     render(): JSX.Element
   }
 
-  interface SelectProps {
-
+  interface SidebarProps extends BoxProps<Sidebar> {
+    fixed?: boolean;
+    size?: 'xsmall' | 'small' | 'medium' | 'large';
+    full?: boolean;
   }
-  export class Select extends React.Component<SelectProps, any>{
+  export class Sidebar extends React.Component<SidebarProps, any> {
     render(): JSX.Element
   }
 
-  interface SidebarProps {
-
+  interface SkipLinkAnchorProps extends React.Props<SkipLinkAnchor> {
+    label: React.ReactNode;
   }
-  export class Sidebar extends React.Component<SidebarProps, any>{
+  export class SkipLinkAnchor extends React.Component<SkipLinkAnchorProps, any> {
     render(): JSX.Element
   }
 
-  interface SkipLinkAnchorProps {
-
+  interface SkipLinksContext {
+    intl?: {};
   }
-  export class SkipLinkAnchor extends React.Component<SkipLinkAnchorProps, any>{
+  export class SkipLinks extends React.Component<any, any> {
+    context: SkipLinksContext;
+    render(): JSX.Element;
+  }
+
+  interface SocialShareProps extends React.Props<SocialShare> {
+    a11yTitle?: string;
+    className?: string;
+    colorIndex?: string;
+    link: string;
+    text?: string;
+    title?: string;
+    type: 'email' | 'facebook' | 'twitter' | 'linkedin' | 'google';
+  }
+  export class SocialShare extends React.Component<SocialShareProps, any> {
     render(): JSX.Element
   }
 
-  interface SkipLinksProps {
-
+  interface SplitProps extends React.Props<Split> {
+    children: Array<React.ReactNode>;
+    fixed?: boolean;
+    flex?: 'left' | 'right' | 'both';
+    onResponsive?: Function;
+    priority?: 'left' | 'right';
+    separator?: boolean;
+    showOnResponsive?: 'priority' | 'both';
   }
-  export class SkipLinks extends React.Component<SkipLinksProps, any>{
+  export class Split extends React.Component<SplitProps, any> {
     render(): JSX.Element
   }
 
-  interface SocialShareProps {
-
+  interface SunBurstContext {
+    intl: {};
   }
-  export class SocialShare extends React.Component<SocialShareProps, any>{
-    render(): JSX.Element
+  interface SunBurstProps extends React.Props<SunBurstProps> {
+    a11yTitle?: string;
+    active?: Array<number>;
+    data?: Array<{
+      children?: Array<{}>;
+      colorIndex?: string;
+      total?: number;
+      value: number;
+    }>;
+    label?: React.ReactNode;
+    onActive?: Function;
+    onClick?: Function;
+    size?: 'small' | 'medium' | 'large' | 'xlarge' | 'full';
+  }
+  export class SunBurst extends React.Component<SunBurstProps, any> {
+    context: SunBurstContext;
+    render(): JSX.Element;
   }
 
-  interface SplitProps {
-
+  interface SVGIconContext {
+    intl: {};
   }
-  export class Split extends React.Component<SplitProps, any>{
-    render(): JSX.Element
+  interface SVGIconProps extends React.Props<SVGIcon> {
+    a11yTitle?: string;
+    colorIndex?: string;
+    size?: 'small' | 'medium' | 'large' | 'xlarge' | 'huge';
+    type?: 'control' | 'logo' | 'status';
   }
-
-  interface SunBurstProps {
-
-  }
-  export class SunBurst extends React.Component<SunBurstProps, any>{
-    render(): JSX.Element
-  }
-
-  interface SVGIconProps {
-
-  }
-  export class SVGIcon extends React.Component<SVGIconProps, any>{
-    render(): JSX.Element
+  export class SVGIcon extends React.Component<SVGIconProps, any> {
+    context: SVGIconContext;
+    render(): JSX.Element;
   }
 
   interface TabProps {
-
+    title: string;
+    active?: boolean;
+    id?: string;
+    onRequestForActive?: Function;
   }
-  export class Tab extends React.Component<TabProps, any>{
+  export class Tab extends React.Component<TabProps, any> {
     render(): JSX.Element
   }
 
-  interface TableProps {
-
+  interface TableContext {
+    intl: {};
   }
-  export class Table extends React.Component<TableProps, any>{
+  interface TableProps extends React.Props<Table> {
+    a11yTitle?: string;
+    onMore?: Function;
+    onSelect?: Function;
+    scrollable?: boolean;
+    selectable?: boolean | 'multiple';
+    selected?: number | Array<number>;
+  }
+  export class Table extends React.Component<TableProps, any> {
+    context: TableContext;
+    render(): JSX.Element;
+  }
+
+  interface TableHeaderProps extends React.Props<TableHeader> {
+    labels: Array<React.ReactNode>;
+    onSort?: Function;
+    sortAscending?: boolean;
+    sortIndex?: number;
+  }
+  export class TableHeader extends React.Component<TableHeaderProps, any> {
     render(): JSX.Element
   }
 
-  interface TableHeaderProps {
-
+  interface TableRowProps extends React.Props<TableRow> {
+    onClick?: Function;
   }
-  export class TableHeader extends React.Component<TableHeaderProps, any>{
-    render(): JSX.Element
-  }
-
-  interface TableRowProps {
-
-  }
-  export class TableRow extends React.Component<TableRowProps, any>{
-    render(): JSX.Element
+  export class TableRow extends React.Component<TableRowProps, any> {
+    render(): JSX.Element;
   }
 
-  interface TabsProps {
-
+  interface TabsContext {
+    intl?: {};
   }
-  export class Tabs extends React.Component<TabsProps, any>{
-    render(): JSX.Element
+  interface TabsProps extends React.Props<Tabs> {
+    activeIndex?: number;
+    justify?: 'start' | 'center' | 'end';
+    responsive?: boolean;
+    onActive?: Function;
   }
-
-  interface TBDProps {
-
-  }
-  export class TBD extends React.Component<TBDProps, any>{
-    render(): JSX.Element
-  }
-
-  interface TextInputProps {
-
-  }
-  export class TextInput extends React.Component<TextInputProps, any>{
-    render(): JSX.Element
+  export class Tabs extends React.Component<TabsProps, any> {
+    context: TabsContext;
+    render(): JSX.Element;
   }
 
-  interface TileProps {
-
+  interface TextInputContext {
+    intl?: {};
   }
-  export class Tile extends React.Component<TileProps, any>{
-    render(): JSX.Element
+  interface TextInputProps extends React.Props<TextInput> {
+    defaultValue?: string;
+    id?: string;
+    name?: string;
+    onDOMChange?: Function;
+    onSelect?: Function;
+    placeHolder?: string;
+    suggestions?: Array<string | { label?: React.ReactNode; value?: any }>;
+    value?: string;
   }
-
-  interface TilesProps {
-
-  }
-  export class Tiles extends React.Component<TilesProps, any>{
-    render(): JSX.Element
-  }
-
-  interface TimestampProps {
-
-  }
-  export class Timestamp extends React.Component<TimestampProps, any>{
-    render(): JSX.Element
+  export class TextInput extends React.Component<TextInputProps, any> {
+    context: TextInputContext;
+    render(): JSX.Element;
   }
 
-  interface TipProps {
-
+  interface TileProps extends BoxProps<Tile> {
+    hoverStyle?: 'border' | 'background' | 'none';
+    hoverColorIndex?: string;
+    hoverBorder?: boolean;
+    hoverBorderSize?: 'small' | 'medium' | 'large';
+    wide?: boolean;
   }
-  export class Tip extends React.Component<TipProps, any>{
-    render(): JSX.Element
-  }
-
-  interface TitleProps {
-
-  }
-  export class Title extends React.Component<TitleProps, any>{
-    render(): JSX.Element
+  export class Tile extends React.Component<TileProps, any> {
+    render(): JSX.Element;
   }
 
-  interface ToastProps {
-
+  interface TilesContext {
+    intl?: {};
   }
-  export class Toast extends React.Component<ToastProps, any>{
-    render(): JSX.Element
+  interface TilesProps extends BoxProps<Tiles> {
+    fill?: boolean;
+    flush?: boolean;
+    onMore?: Function;
+    onSelect?: Function;
+    selectable?: boolean | 'multiple';
+    selected?: number | Array<number>;
+  }
+  export class Tiles extends React.Component<TilesProps, any> {
+    context: TilesContext;
+    render(): JSX.Element;
   }
 
-  interface TopologyProps {
-
+  // DEPRECATED:
+  type TimeStampFIELD_TYPES = 'date' | 'time' | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'hours' | 'minutes' | 'seconds';
+  interface TimestampProps extends React.Props<Timestamp> {
+    align?: 'start' | 'center' | 'end';
+    fields?: Array<TimeStampFIELD_TYPES> | TimeStampFIELD_TYPES;
+    value: string | {};
   }
-  export class Topology extends React.Component<TopologyProps, any>{
-    render(): JSX.Element
+  export class Timestamp extends React.Component<TimestampProps, any> {
+    render(): JSX.Element;
+  }
+
+  interface TipProps extends React.Props<Tip> {
+    colorIndex?: string;
+    onClose: Function;
+    target: string;
+  }
+  export class Tip extends React.Component<TipProps, any> {
+    render(): JSX.Element;
+  }
+
+  interface TitleContext {
+    intl?: {};
+  }
+  interface TitleProps extends React.Props<Title> {
+    a11yTitle?: string;
+    onClick?: Function;
+    responsive?: boolean;
+    truncate?: boolean;
+  }
+  export class Title extends React.Component<TitleProps, any> {
+    context: TitleContext;
+    render(): JSX.Element;
+  }
+
+  interface ToastProps extends React.Props<Toast> {
+    onClose?: Function;
+    status?: string;
+  }
+  export class Toast extends React.Component<ToastProps, any> {
+    render(): JSX.Element;
+  }
+
+  interface TopologyContext {
+    intl?: {};
+  }
+  interface TopologyProps extends React.Props<Topology> {
+    a11yTitle?: string;
+    links?: Array<{ colorIndex?: string; ids: Array<string>}>;
+    linkOffset?: number;
+  }
+  export class Topology extends React.Component<TopologyProps, any> {
+    context: TopologyContext;
+    render(): JSX.Element;
   }
 
   interface ValueProps extends React.Props<Value> {
@@ -875,8 +1000,8 @@ declare namespace Grommet {
     value?: React.ReactNode | number | string;
     units?: React.ReactNode | string;
   }
-  export class Value extends React.Component<ValueProps, any>{
-    render(): JSX.Element
+  export class Value extends React.Component<ValueProps, any> {
+    render(): JSX.Element;
   }
 
   interface VideoProps extends React.Props<Video> {
@@ -905,8 +1030,8 @@ declare namespace Grommet {
     }>;
     title?: React.ReactNode;
   }
-  export class Video extends React.Component<VideoProps, any>{
-    render(): JSX.Element
+  export class Video extends React.Component<VideoProps, any> {
+    render(): JSX.Element;
   }
 
   interface WorldMapProps extends React.Props<WorldMap> {
@@ -916,7 +1041,7 @@ declare namespace Grommet {
       onClick?: Function;
     }>;
   }
-  export class WorldMap extends React.Component<WorldMapProps, any>{
-    render(): JSX.Element
+  export class WorldMap extends React.Component<WorldMapProps, any> {
+    render(): JSX.Element;
   }
 }
