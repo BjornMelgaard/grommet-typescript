@@ -534,7 +534,7 @@ declare namespace Grommet {
       bottom?: VERTICAL_ALIGN_OPTIONS;
       left?: HORIZONTAL_ALIGN_OPTIONS;
       right?: HORIZONTAL_ALIGN_OPTIONS;
-    },
+    };
     dropColorIndex?: string;
     icon?: React.ReactNode;
     id?: string;
@@ -548,22 +548,71 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
+  interface MeterContext {
+    intl?: {};
+  }
   interface MeterProps extends React.Props<Meter> {
-
+    active?: boolean;
+    activeIndex?: number;
+    a11yTitle?: string;
+    colorIndex?: string;
+    label?: React.ReactNode;
+    max?: number;
+    min?: number;
+    onActive?: Function;
+    series?: Array<{
+      colorIndex?: string;
+      onClick?: Function;
+      label?: string;
+      value: number;
+    }>;
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+    stacked?: boolean;
+    tabIndex?: string;
+    threshold?: number;
+    thresholds?: Array<{
+      value: number;
+      colorIndex?: string;
+    }>;
+    type?: 'bar' | 'arc' | 'circle' | 'spiral';
+    value?: number;
+    vertical?: boolean;
+    responsive?: boolean;
   }
-  export class Meter extends React.Component<MeterProps, any>{
-    render(): JSX.Element
+  export class Meter extends React.Component<MeterProps, any> {
+    context: MeterContext;
+    render(): JSX.Element;
   }
 
-  interface NotificationProps extends React.Props<Notification> {
-
+  interface NotificationContext {
+    intl?: {};
+  }
+  interface NotificationProps extends BoxProps<Notification> {
+    closer?: React.ReactNode | boolean;
+    context?: React.ReactNode
+    message: string;
+    onClose?: Function;
+    percentComplete?: number;
+    size?: 'small' | 'medium' | 'large';
+    state?: string;
+    status?: string;
+    timestamp?: {};
   }
   export class Notification extends React.Component<NotificationProps, any> {
-    render(): JSX.Element
+    context: NotificationContext;
+    render(): JSX.Element;
   }
 
   interface NumberInputProps extends React.Props<NumberInput> {
-
+    defaultValue?: number;
+    disabled?: boolean;
+    id?: string;
+    max?: number;
+    min?: number;
+    name?: string;
+    onChange?: Function;
+    step?: number;
+    value?: number | string;
   }
   export class NumberInput extends React.Component<NumberInputProps, any>{
     render(): JSX.Element
@@ -586,28 +635,66 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface QuoteProps {
-
+  interface QuoteProps extends BoxProps<Quote> {
+    borderColorIndex?: string;
+    size?: 'small' | 'medium' | 'large' | 'full';
+    credit?: string | React.ReactElement<any>;
+    emphasizeCredit?: boolean;
   }
   export class Quote extends React.Component<QuoteProps, any>{
     render(): JSX.Element
   }
 
-  interface RadioButtonProps {
-
+  interface RadioButtonProps extends React.Props<RadioButton> {
+    checked?: boolean;
+    defaultChecked?: boolean;
+    disabled?: boolean;
+    id: string;
+    label: React.ReactNode;
+    name?: string;
+    onChange?: Function;
+    value?: string;
   }
   export class RadioButton extends React.Component<RadioButtonProps, any>{
     render(): JSX.Element
   }
 
-  interface SearchProps {
-
+  interface SearchContext {
+    intl?: any;
   }
-  export class Search extends React.Component<SearchProps, any>{
-    render(): JSX.Element
+  interface SearchProps extends React.Props<Search> {
+    align?: string;
+    defaultValue?: string;
+    dropAlign?: {
+      top?: VERTICAL_ALIGN_OPTIONS;
+      bottom?: VERTICAL_ALIGN_OPTIONS;
+      left?: HORIZONTAL_ALIGN_OPTIONS;
+      right?: HORIZONTAL_ALIGN_OPTIONS;
+    };
+    dropColorIndex?: string;
+    fill?: boolean;
+    iconAlign?: 'start' | 'end';
+    id?: string;
+    initialFocus?: boolean;
+    inline?: boolean;
+    onDOMChange?: Function;
+    onSelect?: Function;
+    pad?: 'small' | 'medium';
+    placeHolder?: string;
+    responsive?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    suggestions?: Array<{
+      label?: React.ReactNode;
+      value?: any;
+    } | string>;
+    value?: string;
+  }
+  export class Search extends React.Component<SearchProps, any> {
+    context: SearchContext;
+    render(): JSX.Element;
   }
 
-  interface SearchInputProps {
+  interface SearchInputProps extends React.Props<SearchInput> {
 
   }
   export class SearchInput extends React.Component<SearchInputProps, any>{
