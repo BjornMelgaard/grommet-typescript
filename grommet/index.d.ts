@@ -439,46 +439,113 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
+  interface ListContext {
+    intl: {};
+  }
   interface ListProps extends React.Props<List> {
-
+    emptyIndicator?: React.ReactNode;
+    onMore?: Function;
+    onSelect?: Function;
+    selectable?: boolean | 'multiple';
+    selected?: number | Array<number>;
   }
-  export class List extends React.Component<ListProps, any>{
-    render(): JSX.Element
+  export class List extends React.Component<ListProps, any> {
+    context: ListContext;
+    render(): JSX.Element;
   }
 
-  interface ListItemProps extends React.Props<ListItem> {
-
-  }
+  interface ListItemProps extends BoxProps<ListItem> {}
   export class ListItem extends React.Component<ListItemProps, any>{
     render(): JSX.Element
   }
 
   interface LoginFormProps extends React.Props<LoginForm> {
-
+    align: 'start' | 'center' | 'end' | 'stretch';
+    defaultValues?: {
+      username?: string;
+      rememberMe?: boolean;
+    };
+    errors?: Array<string>;
+    forgotPassword?: React.ReactNode;
+    logo?: React.ReactNode;
+    onSubmit?: Function;
+    onChange?: Function;
+    rememberMe?: boolean;
+    secondaryText?: string;
+    title?: string;
+    usernameType?: string;
   }
-  export class LoginForm extends React.Component<LoginFormProps, any>{
+  export class LoginForm extends React.Component<LoginFormProps, any> {
     render(): JSX.Element
   }
 
-  interface MapProps extends React.Props<Map> {
-
+  interface MapContext {
+    intl: {};
   }
-  export class Map extends React.Component<MapProps, any>{
+  interface MapProps extends React.Props<Map> {
+    active?: string;
+    data: {
+      categories: Array<{
+        id?: string;
+        label?: React.ReactNode;
+        items: Array<{
+          id?: string;
+          label?: string;
+          node?: React.ReactNode;
+        }>;
+      }>;
+      links: Array<{
+        childId: string;
+        colorIndex?: string;
+        parentId: string;
+      }>;
+    };
+    linkColorIndex?: string;
+    onActive?: Function;
+    vertical?: boolean;
+  }
+  export class Map extends React.Component<MapProps, any> {
+    context: MapContext;
     render(): JSX.Element
   }
 
   interface MarkdownProps extends React.Props<Markdown> {
-
+    content?: string;
+    components?: {
+      props?: {};
+    };
   }
   export class Markdown extends React.Component<MarkdownProps, any>{
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
-  interface MenuProps extends React.Props<Menu> {
-
+  interface MenuContext {
+    history?: any;
+    intl?: any;
+    router?: any;
+    store?: any;
   }
-  export class Menu extends React.Component<MenuProps, any>{
-    render(): JSX.Element
+  type VERTICAL_ALIGN_OPTIONS = 'top' | 'bottom';
+  type HORIZONTAL_ALIGN_OPTIONS = 'right' | 'left';
+  interface MenuProps extends BoxProps<Menu> {
+    closeOnClick?: boolean;
+    dropAlign?: {
+      top?: VERTICAL_ALIGN_OPTIONS;
+      bottom?: VERTICAL_ALIGN_OPTIONS;
+      left?: HORIZONTAL_ALIGN_OPTIONS;
+      right?: HORIZONTAL_ALIGN_OPTIONS;
+    },
+    dropColorIndex?: string;
+    icon?: React.ReactNode;
+    id?: string;
+    inline?: boolean | 'expand';
+    fill?: boolean;
+    label?: string;
+    size?: 'small' | 'medium' | 'large';
+  }
+  export class Menu extends React.Component<MenuProps, any> {
+    context: MenuContext;
+    render(): JSX.Element;
   }
 
   interface MeterProps extends React.Props<Meter> {
