@@ -14,5 +14,8 @@
     "types-publisher": "Microsoft/types-publisher#production"
   },
   "author": "Ryan Collins <rccproductions@mac.com>",
-  "license": "APACHE"
+  "license": "APACHE",
+  "dependencies": {
+    "grommet": "^1.1.0"
+  }
 }

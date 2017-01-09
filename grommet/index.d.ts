@@ -1,51 +1,15 @@
+
 // Type definitions for Grommet
 // Project: https://github.com/grommet/grommet
 // Definitions by: Ryan C. Collins <https://www.ryancollins.io/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-/// <reference path="../react/index.d.ts" />
+/// <reference types="react" />
 
-declare namespace GrommetBoxTypes {
-  type FixedSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
-  type MarginSizes = 'small' | 'medium' | 'large' | 'none';
-  type BoxSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'full' | '1/2' | '1/3' | '2/3' | '1/4' | '3/4';
-  type PadSizes = 'small' | 'medium' | 'large' | 'none';
-  type Size = 'auto' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'full';
-}
-
-declare namespace GrommetContextTypes {
-  type Intl = {
-    intl?: {};
-  }
-  type All = {
-    router?: any;
-    history?: {};
-    intl?: {};
-    store?: {};
-  }
-}
-
-declare namespace GrommetAnimationTypes {
-  type AnimationType = 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'jiggle';
-  type AnimationDetails = {
-    animation: AnimationType;
-    duration?: number;
-    delay?: number;
-  };
-}
-
-declare namespace GrommetFormTypes {
-  type FormPadding = 'none' | 'small' | 'medium' | 'large';
-}
-
-declare namespace GrommetDropTypes {
-  type VERTICAL_ALIGN_OPTIONS = 'top' | 'bottom';
-  type HORIZONTAL_ALIGN_OPTIONS = 'right' | 'left';
-}
-
+// tslint:disable forbidden-types
 declare namespace Grommet {
   interface AccordionProps extends React.Props<Accordion> {
-    active?: number | Array<number>;
+    active?: number | number[];
     animate?: boolean;
     onActive?: Function;
     openMulti?: boolean;
@@ -91,9 +55,9 @@ declare namespace Grommet {
 
   interface AnimateProps extends React.Props<Animate> {
     component?: string | Function;
-    enter?: GrommetAnimationTypes.AnimationDetails;
+    enter?: GrommetCustomTypes.AnimationDetails;
     keep?: boolean;
-    leave: GrommetAnimationTypes.AnimationDetails;
+    leave: GrommetCustomTypes.AnimationDetails;
     visible?: 'scroll' | boolean;
   }
   export class Animate extends React.Component<AnimateProps, any> {
@@ -278,7 +242,7 @@ declare namespace Grommet {
         height?: number;
         svgElement?: React.ReactNode;
       }
-    }>
+    }>;
     size?: 'small' | 'medium' | 'large' | 'full';
     units?: string;
     vertical?: boolean;
@@ -301,9 +265,9 @@ declare namespace Grommet {
     compact?: boolean;
     fill?: boolean;
     onSubmit: Function;
-    pad?: GrommetFormTypes.FormPadding | {
-      horizontal?: GrommetFormTypes.FormPadding;
-      vertical?: GrommetFormTypes.FormPadding;
+    pad?: GrommetCustomTypes.FormPadding | {
+      horizontal?: GrommetCustomTypes.FormPadding;
+      vertical?: GrommetCustomTypes.FormPadding;
     };
   }
   export class Form extends React.Component<FormProps, any> {
@@ -470,15 +434,14 @@ declare namespace Grommet {
     onMore?: Function;
     onSelect?: Function;
     selectable?: boolean | 'multiple';
-    selected?: number | Array<number>;
+    selected?: number | number[];
   }
   export class List extends React.Component<ListProps, any> {
     context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface ListItemProps extends BoxProps<ListItem> {}
-  export class ListItem extends React.Component<ListItemProps, any> {
+  export class ListItem extends React.Component<BoxProps<ListItem>, any> {
     render(): JSX.Element;
   }
 
@@ -488,7 +451,7 @@ declare namespace Grommet {
       username?: string;
       rememberMe?: boolean;
     };
-    errors?: Array<string>;
+    errors?: string[];
     forgotPassword?: React.ReactNode;
     logo?: React.ReactNode;
     onSubmit?: Function;
@@ -542,10 +505,10 @@ declare namespace Grommet {
   interface MenuProps extends BoxProps<Menu> {
     closeOnClick?: boolean;
     dropAlign?: {
-      top?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
-      bottom?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
-      left?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
-      right?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
+      top?: GrommetCustomTypes.VERTICAL_ALIGN_OPTIONS;
+      bottom?: GrommetCustomTypes.VERTICAL_ALIGN_OPTIONS;
+      left?: GrommetCustomTypes.HORIZONTAL_ALIGN_OPTIONS;
+      right?: GrommetCustomTypes.HORIZONTAL_ALIGN_OPTIONS;
     };
     dropColorIndex?: string;
     icon?: React.ReactNode;
@@ -595,7 +558,7 @@ declare namespace Grommet {
 
   interface NotificationProps extends BoxProps<Notification> {
     closer?: React.ReactNode | boolean;
-    context?: React.ReactNode
+    context?: React.ReactNode;
     message: string;
     onClose?: Function;
     percentComplete?: number;
@@ -624,7 +587,7 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface ObjectProps extends React.Props<Object>  {
+  interface ObjectProps extends React.Props<Object>  { // tslint:disable-line
     data: {};
   }
   export class Object extends React.Component<ObjectProps, any> {
@@ -669,10 +632,10 @@ declare namespace Grommet {
     align?: string;
     defaultValue?: string;
     dropAlign?: {
-      top?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
-      bottom?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
-      left?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
-      right?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
+      top?: GrommetCustomTypes.VERTICAL_ALIGN_OPTIONS;
+      bottom?: GrommetCustomTypes.VERTICAL_ALIGN_OPTIONS;
+      left?: GrommetCustomTypes.HORIZONTAL_ALIGN_OPTIONS;
+      right?: GrommetCustomTypes.HORIZONTAL_ALIGN_OPTIONS;
     };
     dropColorIndex?: string;
     fill?: boolean;
@@ -697,36 +660,33 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  type SearchInputValue = { label?: string; value?: string };
   interface SearchInputProps extends React.Props<SearchInput> {
-    defaultValue?: SearchInputValue | string;
+    defaultValue?: GrommetCustomTypes.SearchInputValue | string;
     id?: string;
     name?: string;
     onDOMChange?: Function;
     onSelect?: Function;
     placeHolder?: string;
-    suggestions?: Array<SearchInputValue | string>;
-    value?: SearchInputValue | string;
+    suggestions?: Array<GrommetCustomTypes.SearchInputValue | string>;
+    value?: GrommetCustomTypes.SearchInputValue | string;
   }
   export class SearchInput extends React.Component<SearchInputProps, any> {
     context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface SectionProps extends BoxProps<Section> {}
-  export class Section extends React.Component<SectionProps, any> {
+  export class Section extends React.Component<BoxProps<Section>, any> {
     render(): JSX.Element
   }
 
-  type SelectValueType = { label?: string; value?: any; } | string | number;
   interface SelectProps extends React.Props<Select> {
     inline?: boolean;
     multiple?: boolean;
     onSearch?: Function;
     onChange?: Function;
     placeHolder?: string;
-    options: Array<SelectValueType>;
-    value?: SelectValueType | Array<SelectValueType>;
+    options: GrommetCustomTypes.SelectValueType[];
+    value?: GrommetCustomTypes.SelectValueType | GrommetCustomTypes.SelectValueType[];
   }
   export class Select extends React.Component<SelectProps, any> {
     render(): JSX.Element
@@ -767,7 +727,7 @@ declare namespace Grommet {
   }
 
   interface SplitProps extends React.Props<Split> {
-    children: Array<React.ReactNode>;
+    children: React.ReactNode[];
     fixed?: boolean;
     flex?: 'left' | 'right' | 'both';
     onResponsive?: Function;
@@ -781,7 +741,7 @@ declare namespace Grommet {
 
   interface SunBurstProps extends React.Props<SunBurstProps> {
     a11yTitle?: string;
-    active?: Array<number>;
+    active?: number[];
     data?: Array<{
       children?: Array<{}>;
       colorIndex?: string;
@@ -825,7 +785,7 @@ declare namespace Grommet {
     onSelect?: Function;
     scrollable?: boolean;
     selectable?: boolean | 'multiple';
-    selected?: number | Array<number>;
+    selected?: number | number[];
   }
   export class Table extends React.Component<TableProps, any> {
     context: GrommetContextTypes.Intl;
@@ -833,7 +793,7 @@ declare namespace Grommet {
   }
 
   interface TableHeaderProps extends React.Props<TableHeader> {
-    labels: Array<React.ReactNode>;
+    labels: React.ReactNode[];
     onSort?: Function;
     sortAscending?: boolean;
     sortIndex?: number;
@@ -892,18 +852,16 @@ declare namespace Grommet {
     onMore?: Function;
     onSelect?: Function;
     selectable?: boolean | 'multiple';
-    selected?: number | Array<number>;
+    selected?: number | number[];
   }
   export class Tiles extends React.Component<TilesProps, any> {
     context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  // DEPRECATED:
-  type TimeStampFIELD_TYPES = 'date' | 'time' | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'hours' | 'minutes' | 'seconds';
   interface TimestampProps extends React.Props<Timestamp> {
     align?: 'start' | 'center' | 'end';
-    fields?: Array<TimeStampFIELD_TYPES> | TimeStampFIELD_TYPES;
+    fields?: GrommetCustomTypes.TIME_STAMP_FIELD_TYPES[] | GrommetCustomTypes.TIME_STAMP_FIELD_TYPES;
     value: string | {};
   }
   export class Timestamp extends React.Component<TimestampProps, any> {
@@ -940,7 +898,7 @@ declare namespace Grommet {
 
   interface TopologyProps extends React.Props<Topology> {
     a11yTitle?: string;
-    links?: Array<{ colorIndex?: string; ids: Array<string>}>;
+    links?: Array<{ colorIndex?: string; ids: string[]}>;
     linkOffset?: number;
   }
   export class Topology extends React.Component<TopologyProps, any> {
@@ -971,7 +929,7 @@ declare namespace Grommet {
       left?: boolean;
       right?: boolean;
       top?: boolean;
-    },
+    };
     allowFullScreen?: boolean;
     autoPlay?: boolean;
     colorIndex?: string;
@@ -1005,4 +963,40 @@ declare namespace Grommet {
   export class WorldMap extends React.Component<WorldMapProps, any> {
     render(): JSX.Element;
   }
+}
+
+// Internal grommet types
+declare namespace GrommetBoxTypes {
+  type FixedSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
+  type MarginSizes = 'small' | 'medium' | 'large' | 'none';
+  type BoxSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'full' | '1/2' | '1/3' | '2/3' | '1/4' | '3/4';
+  type PadSizes = 'small' | 'medium' | 'large' | 'none';
+  type Size = 'auto' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'full';
+}
+
+declare namespace GrommetContextTypes {
+  interface Intl {
+    intl?: {};
+  }
+  interface All {
+    router?: any;
+    history?: {};
+    intl?: {};
+    store?: {};
+  }
+}
+
+declare namespace GrommetCustomTypes {
+  type SelectValueType = { label?: string; value?: any; } | string | number;
+  interface SearchInputValue { label?: string; value?: string; }
+  type VERTICAL_ALIGN_OPTIONS = 'top' | 'bottom';
+  type HORIZONTAL_ALIGN_OPTIONS = 'right' | 'left';
+  type FormPadding = 'none' | 'small' | 'medium' | 'large';
+  type AnimationType = 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'jiggle';
+  interface AnimationDetails {
+    animation: AnimationType;
+    duration?: number;
+    delay?: number;
+  }
+  type TIME_STAMP_FIELD_TYPES = 'date' | 'time' | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'hours' | 'minutes' | 'seconds';
 }
