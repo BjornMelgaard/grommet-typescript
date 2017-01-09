@@ -54,7 +54,7 @@ class TestApp extends React.Component<any, any> {
     super();
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick() {}
+  handleClick() { return; }
   render() {
     return (
       <App centered inline>
@@ -512,7 +512,7 @@ class TestApp extends React.Component<any, any> {
           </Paragraph>
           <Menu direction='row'
             size='small'
-            dropAlign={{"right": "right"}}>
+            dropAlign={{ right: "right"}}>
             <Anchor href='#'>
               First
             </Anchor>
@@ -548,7 +548,7 @@ class TestApp extends React.Component<any, any> {
           </Paragraph>
           <Menu direction='row'
             size='small'
-            dropAlign={{"right": "right"}}>
+            dropAlign={{ right: "right"}}>
             <Anchor href='#'>
               First
             </Anchor>
