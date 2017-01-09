@@ -47,6 +47,20 @@ import {
   TextInput,
   List,
   ListItem,
+  Table,
+  TableRow,
+  TableHeader,
+  Tiles,
+  Tile,
+  Distribution,
+  Map,
+  Meter,
+  Legend,
+  SunBurst,
+  Topology,
+  WorldMap,
+  Carousel,
+  Animate,
 } from 'grommet/components';
 
 class TestApp extends React.Component<any, any> {
@@ -61,6 +75,196 @@ class TestApp extends React.Component<any, any> {
         <Headline align="center">
           Grommet + TypeScript
         </Headline>
+        <Box pad={{between: "medium"}}
+          align='center'>
+          <Button label='Leave'
+            primary={true}
+            onClick={this.handleClick} />
+          <Animate enter={{ animation: "fade", duration: 1000, delay: 0}} keep={true}>
+            <Box direction='row'>
+              <Box
+                colorIndex='light-2'
+                margin='medium'
+                pad='large'
+              >
+                <Value value={1} />
+              </Box>
+            </Box>
+          </Animate>
+        </Box>
+        <Carousel>
+          <Image src='/img/carousel-1.png' />
+          <Image src='/img/carousel-2.png' />
+          <Box pad='large'
+            colorIndex='neutral-3'>
+            <Box pad='medium'
+              colorIndex='neutral-2'>
+              Content inside of a Box element.
+            </Box>
+          </Box>
+        </Carousel>
+        <WorldMap
+          series={[{
+            continent: "NorthAmerica",
+            colorIndex: "graph-1",
+            onClick: this.handleClick,
+          }, {
+            continent: "SouthAmerica",
+            colorIndex: "accent-2",
+            onClick: this.handleClick,
+          }]}
+        />
+        <Topology
+          a11yTitle='Server Topology'
+          links={[{colorIndex: "graph-1", ids: ["s1p1", "s2p1"]}, {colorIndex: "graph-1", ids: ["s1p1", "s2p1"]}]}
+        />
+        <Box>
+          <Value value={40}
+            units='GB'
+            align='start' />
+          <Meter value={40}
+            onActive={this.handleClick} />
+        </Box>
+        <Box direction='row'
+          align='center'
+          pad={{between: "medium"}}>
+          <SunBurst
+            data={[{
+              value: 50,
+              colorIndex: "neutral-1",
+              children: [
+                {
+                  label: "sub-1",
+                  value: 20,
+                  colorIndex: "neutral-1",
+                  total: 10,
+                  children: [
+                    {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+                    {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+                  ]
+                }
+              ]
+            }, {
+              value: 30,
+              colorIndex: "neutral-2",
+              children: [
+                {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+                {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+              ]
+            }, {
+              value: 20,
+              colorIndex: "neutral-3",
+              children: [
+                {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+                {label: "leaf-1", value: 5, colorIndex: "neutral-1"},
+              ]
+            }]}
+            onActive={this.handleClick}
+            onClick={this.handleClick}
+          />
+          <Legend series={[{label: "on target", colorIndex: "neutral-1"}, {label: "over", colorIndex: "neutral-2"}]} />
+        </Box>
+        <Legend series={[{label: "Americas", value: 40, colorIndex: "graph-1", onClick: this.handleClick}]} />
+        <Map
+          data={{
+          categories: [
+            {
+              id: "category-3",
+              label: "Third category",
+              items: [
+                {id: "item-3-1", label: "Sixth item"},
+                {id: "item-3-2", label: "Seventh item"}
+              ]
+            }
+          ],
+          links: [
+            {parentId: "item-1-1", childId: "item-2-2"},
+          ]
+          }}
+        />
+        <Distribution series={[{label: "First", value: 40, colorIndex: "graph-1"}, {label: "Second", value: 30, colorIndex: "accent-2"}]} />
+        <Tiles
+          onMore={this.handleClick}
+          selectable={true}
+          onSelect={this.handleClick}
+        >
+          <Tile>
+            <Card thumbnail='/img/carousel-1.png'
+              heading='Sample Heading'
+              label='Sample Label'
+              description='Sample description providing more details.' />
+          </Tile>
+          <Tile>
+            <Card thumbnail='/img/carousel-1.png'
+              heading='Sample Heading'
+              label='Sample Label'
+              description='Sample description providing more details.' />
+          </Tile>
+          <Tile>
+            <Card thumbnail='/img/carousel-1.png'
+              heading='Sample Heading'
+              label='Sample Label'
+              description='Sample description providing more details.' />
+          </Tile>
+          <Tile>
+            <Card thumbnail='/img/carousel-1.png'
+              heading='Sample Heading'
+              label='Sample Label'
+              description='Sample description providing more details.' />
+          </Tile>
+        </Tiles>
+        <Table
+          selectable={true}
+          onSelect={this.handleClick}
+        >
+          <TableHeader labels={['Name', 'Note']} />
+          <tbody>
+            <TableRow>
+              <td>
+                1
+              </td>
+              <td>
+                Alan
+              </td>
+              <td className='secondary'>
+                plays accordion
+              </td>
+            </TableRow>
+            <TableRow>
+              <td>
+                2
+              </td>
+              <td>
+                Chris
+              </td>
+              <td className='secondary'>
+                drops the mic
+              </td>
+            </TableRow>
+            <TableRow>
+              <td>
+                3
+              </td>
+              <td>
+                Eric
+              </td>
+              <td className='secondary'>
+                rides a bike
+              </td>
+            </TableRow>
+            <TableRow>
+              <td>
+                4
+              </td>
+              <td>
+                Tracy
+              </td>
+              <td className='secondary'>
+                travels the world
+              </td>
+            </TableRow>
+          </tbody>
+        </Table>
         <Markdown
           content={`
             # H1
