@@ -7,6 +7,9 @@
     "url": "https://github.com/RyanCCollins/grommet-typescript",
     "type": "git"
   },
+  "engines": {
+    "node": ">= 6.9.1"
+  },
   "devDependencies": {
     "types-publisher": "Microsoft/types-publisher#production"
   },

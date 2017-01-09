@@ -13,9 +13,37 @@ declare namespace GrommetBoxTypes {
   type Size = 'auto' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'full';
 }
 
-declare namespace Grommet {
-  type RestProps = any;
+declare namespace GrommetContextTypes {
+  type Intl = {
+    intl?: {};
+  }
+  type All = {
+    router?: any;
+    history?: {};
+    intl?: {};
+    store?: {};
+  }
+}
 
+declare namespace GrommetAnimationTypes {
+  type AnimationType = 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'jiggle';
+  type AnimationDetails = {
+    animation: AnimationType;
+    duration?: number;
+    delay?: number;
+  };
+}
+
+declare namespace GrommetFormTypes {
+  type FormPadding = 'none' | 'small' | 'medium' | 'large';
+}
+
+declare namespace GrommetDropTypes {
+  type VERTICAL_ALIGN_OPTIONS = 'top' | 'bottom';
+  type HORIZONTAL_ALIGN_OPTIONS = 'right' | 'left';
+}
+
+declare namespace Grommet {
   interface AccordionProps extends React.Props<Accordion> {
     active?: number | Array<number>;
     animate?: boolean;
@@ -26,9 +54,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface AccordionPanelContext {
-    intl?: {};
-  }
   interface AccordionPanelProps extends React.Props<AccordionPanel> {
     a11yTitle?: string;
     active?: boolean;
@@ -38,13 +63,10 @@ declare namespace Grommet {
     pad?: any;
   }
   export class AccordionPanel extends React.Component<AccordionPanelProps, any> {
-    context: AccordionPanelContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface AnchorContext {
-    intl?: {};
-  }
   interface AnchorProps extends React.Props<Anchor> {
     a11yTitle?: string;
     align?: 'start' | 'center' | 'end';
@@ -63,21 +85,15 @@ declare namespace Grommet {
     target?: string;
   }
   export class Anchor extends React.Component<AnchorProps, any> {
-    context: AnchorContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  type AnimationType = 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'jiggle';
-  type AnimationDetails = {
-    animation: AnimationType;
-    duration?: number;
-    delay?: number;
-  };
   interface AnimateProps extends React.Props<Animate> {
     component?: string | Function;
-    enter?: AnimationDetails;
+    enter?: GrommetAnimationTypes.AnimationDetails;
     keep?: boolean;
-    leave: AnimationDetails;
+    leave: GrommetAnimationTypes.AnimationDetails;
     visible?: 'scroll' | boolean;
   }
   export class Animate extends React.Component<AnimateProps, any> {
@@ -153,11 +169,8 @@ declare namespace Grommet {
     texture?: React.ReactNode | string;
     wrap?: boolean;
   }
-  interface BoxContext {
-    intl?: {};
-  }
   export class Box extends React.Component<BoxProps<Box>, any> {
-    context: BoxContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -284,12 +297,14 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  type FormPadding = 'none' | 'small' | 'medium' | 'large';
   interface FormProps extends React.Props<Form> {
     compact?: boolean;
     fill?: boolean;
     onSubmit: Function;
-    pad?: FormPadding | { horizontal?: FormPadding; vertical?: FormPadding };
+    pad?: GrommetFormTypes.FormPadding | {
+      horizontal?: GrommetFormTypes.FormPadding;
+      vertical?: GrommetFormTypes.FormPadding;
+    };
   }
   export class Form extends React.Component<FormProps, any> {
     render(): JSX.Element;
@@ -405,18 +420,17 @@ declare namespace Grommet {
   }
 
   interface LabelProps extends React.Props<Label> {
-
+    announce?: boolean;
+    labelFor?: string;
+    margin?: 'none' | 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium';
+    truncate?: boolean;
+    uppercase?: boolean;
   }
   export class Label extends React.Component<LabelProps, any> {
     render(): JSX.Element;
   }
 
-  interface LayerContext {
-    router?: any;
-    history?: {};
-    intl?: {};
-    store?: {};
-  }
   interface LayerProps extends React.Props<Layer> {
     align?: 'center' | 'top' | 'bottom' | 'left' | 'right';
     closer?: React.ReactNode | boolean;
@@ -426,7 +440,7 @@ declare namespace Grommet {
     onClose?: Function;
   }
   export class Layer extends React.Component<LayerProps, any> {
-    context: LayerContext
+    context: GrommetContextTypes.All;
     render(): JSX.Element;
   }
 
@@ -451,9 +465,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface ListContext {
-    intl: {};
-  }
   interface ListProps extends React.Props<List> {
     emptyIndicator?: React.ReactNode;
     onMore?: Function;
@@ -462,7 +473,7 @@ declare namespace Grommet {
     selected?: number | Array<number>;
   }
   export class List extends React.Component<ListProps, any> {
-    context: ListContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -491,9 +502,6 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface MapContext {
-    intl: {};
-  }
   interface MapProps extends React.Props<Map> {
     active?: string;
     data: {
@@ -517,7 +525,7 @@ declare namespace Grommet {
     vertical?: boolean;
   }
   export class Map extends React.Component<MapProps, any> {
-    context: MapContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element
   }
 
@@ -531,21 +539,13 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface MenuContext {
-    history?: any;
-    intl?: any;
-    router?: any;
-    store?: any;
-  }
-  type VERTICAL_ALIGN_OPTIONS = 'top' | 'bottom';
-  type HORIZONTAL_ALIGN_OPTIONS = 'right' | 'left';
   interface MenuProps extends BoxProps<Menu> {
     closeOnClick?: boolean;
     dropAlign?: {
-      top?: VERTICAL_ALIGN_OPTIONS;
-      bottom?: VERTICAL_ALIGN_OPTIONS;
-      left?: HORIZONTAL_ALIGN_OPTIONS;
-      right?: HORIZONTAL_ALIGN_OPTIONS;
+      top?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
+      bottom?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
+      left?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
+      right?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
     };
     dropColorIndex?: string;
     icon?: React.ReactNode;
@@ -556,13 +556,10 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large';
   }
   export class Menu extends React.Component<MenuProps, any> {
-    context: MenuContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface MeterContext {
-    intl?: {};
-  }
   interface MeterProps extends React.Props<Meter> {
     active?: boolean;
     activeIndex?: number;
@@ -592,13 +589,10 @@ declare namespace Grommet {
     responsive?: boolean;
   }
   export class Meter extends React.Component<MeterProps, any> {
-    context: MeterContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface NotificationContext {
-    intl?: {};
-  }
   interface NotificationProps extends BoxProps<Notification> {
     closer?: React.ReactNode | boolean;
     context?: React.ReactNode
@@ -611,7 +605,7 @@ declare namespace Grommet {
     timestamp?: {};
   }
   export class Notification extends React.Component<NotificationProps, any> {
-    context: NotificationContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -671,17 +665,14 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface SearchContext {
-    intl?: any;
-  }
   interface SearchProps extends React.Props<Search> {
     align?: string;
     defaultValue?: string;
     dropAlign?: {
-      top?: VERTICAL_ALIGN_OPTIONS;
-      bottom?: VERTICAL_ALIGN_OPTIONS;
-      left?: HORIZONTAL_ALIGN_OPTIONS;
-      right?: HORIZONTAL_ALIGN_OPTIONS;
+      top?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
+      bottom?: GrommetDropTypes.VERTICAL_ALIGN_OPTIONS;
+      left?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
+      right?: GrommetDropTypes.HORIZONTAL_ALIGN_OPTIONS;
     };
     dropColorIndex?: string;
     fill?: boolean;
@@ -702,13 +693,10 @@ declare namespace Grommet {
     value?: string;
   }
   export class Search extends React.Component<SearchProps, any> {
-    context: SearchContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface SearchInputContext {
-    intl?: any;
-  }
   type SearchInputValue = { label?: string; value?: string };
   interface SearchInputProps extends React.Props<SearchInput> {
     defaultValue?: SearchInputValue | string;
@@ -721,7 +709,7 @@ declare namespace Grommet {
     value?: SearchInputValue | string;
   }
   export class SearchInput extends React.Component<SearchInputProps, any> {
-    context: SearchInputContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -760,11 +748,8 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface SkipLinksContext {
-    intl?: {};
-  }
   export class SkipLinks extends React.Component<any, any> {
-    context: SkipLinksContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -794,9 +779,6 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface SunBurstContext {
-    intl: {};
-  }
   interface SunBurstProps extends React.Props<SunBurstProps> {
     a11yTitle?: string;
     active?: Array<number>;
@@ -812,13 +794,10 @@ declare namespace Grommet {
     size?: 'small' | 'medium' | 'large' | 'xlarge' | 'full';
   }
   export class SunBurst extends React.Component<SunBurstProps, any> {
-    context: SunBurstContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface SVGIconContext {
-    intl: {};
-  }
   interface SVGIconProps extends React.Props<SVGIcon> {
     a11yTitle?: string;
     colorIndex?: string;
@@ -826,7 +805,7 @@ declare namespace Grommet {
     type?: 'control' | 'logo' | 'status';
   }
   export class SVGIcon extends React.Component<SVGIconProps, any> {
-    context: SVGIconContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -840,9 +819,6 @@ declare namespace Grommet {
     render(): JSX.Element
   }
 
-  interface TableContext {
-    intl: {};
-  }
   interface TableProps extends React.Props<Table> {
     a11yTitle?: string;
     onMore?: Function;
@@ -852,7 +828,7 @@ declare namespace Grommet {
     selected?: number | Array<number>;
   }
   export class Table extends React.Component<TableProps, any> {
-    context: TableContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -873,9 +849,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface TabsContext {
-    intl?: {};
-  }
   interface TabsProps extends React.Props<Tabs> {
     activeIndex?: number;
     justify?: 'start' | 'center' | 'end';
@@ -883,13 +856,10 @@ declare namespace Grommet {
     onActive?: Function;
   }
   export class Tabs extends React.Component<TabsProps, any> {
-    context: TabsContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
-  interface TextInputContext {
-    intl?: {};
-  }
   interface TextInputProps extends React.Props<TextInput> {
     defaultValue?: string;
     id?: string;
@@ -901,7 +871,7 @@ declare namespace Grommet {
     value?: string;
   }
   export class TextInput extends React.Component<TextInputProps, any> {
-    context: TextInputContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -916,9 +886,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface TilesContext {
-    intl?: {};
-  }
   interface TilesProps extends BoxProps<Tiles> {
     fill?: boolean;
     flush?: boolean;
@@ -928,7 +895,7 @@ declare namespace Grommet {
     selected?: number | Array<number>;
   }
   export class Tiles extends React.Component<TilesProps, any> {
-    context: TilesContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -952,9 +919,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface TitleContext {
-    intl?: {};
-  }
   interface TitleProps extends React.Props<Title> {
     a11yTitle?: string;
     onClick?: Function;
@@ -962,7 +926,7 @@ declare namespace Grommet {
     truncate?: boolean;
   }
   export class Title extends React.Component<TitleProps, any> {
-    context: TitleContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
@@ -974,16 +938,13 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface TopologyContext {
-    intl?: {};
-  }
   interface TopologyProps extends React.Props<Topology> {
     a11yTitle?: string;
     links?: Array<{ colorIndex?: string; ids: Array<string>}>;
     linkOffset?: number;
   }
   export class Topology extends React.Component<TopologyProps, any> {
-    context: TopologyContext;
+    context: GrommetContextTypes.Intl;
     render(): JSX.Element;
   }
 
