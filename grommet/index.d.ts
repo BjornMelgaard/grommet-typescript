@@ -6,6 +6,76 @@
 
 /// <reference types="react" />
 
+declare module "grommet/components" {
+  export import Accordion = Grommet.Accordion;
+  export import AccordionPanel = Grommet.AccordionPanel;
+  export import Anchor = Grommet.Anchor;
+  export import Animate = Grommet.Animate;
+  export import App = Grommet.App;
+  export import Article = Grommet.Article;
+  export import Box = Grommet.Box;
+  export import Button = Grommet.Button;
+  export import Card = Grommet.Card;
+  export import Carousel = Grommet.Carousel;
+  export import CheckBox = Grommet.CheckBox;
+  export import Columns = Grommet.Columns;
+  export import DateTime = Grommet.DateTime;
+  export import Distribution = Grommet.Distribution;
+  export import Footer = Grommet.Footer;
+  export import Form = Grommet.Form;
+  export import FormattedMessage = Grommet.FormattedMessage;
+  export import FormField = Grommet.FormField;
+  export import FormFields = Grommet.FormFields;
+  export import Header = Grommet.Header;
+  export import Heading = Grommet.Heading;
+  export import Headline = Grommet.Headline;
+  export import Hero = Grommet.Hero;
+  export import Image = Grommet.Image;
+  export import Label = Grommet.Label;
+  export import Layer = Grommet.Layer;
+  export import Legend = Grommet.Legend;
+  export import List = Grommet.List;
+  export import ListItem = Grommet.ListItem;
+  export import LoginForm = Grommet.LoginForm;
+  export import Map = Grommet.Map;
+  export import Markdown = Grommet.Markdown;
+  export import Menu = Grommet.Menu;
+  export import Meter = Grommet.Meter;
+  export import Notification = Grommet.Notification;
+  export import NumberInput = Grommet.NumberInput;
+  export import Object = Grommet.Object;
+  export import Paragraph = Grommet.Paragraph;
+  export import Quote = Grommet.Quote;
+  export import RadioButton = Grommet.RadioButton;
+  export import Search = Grommet.Search;
+  export import SearchInput = Grommet.SearchInput;
+  export import Section = Grommet.Section;
+  export import Select = Grommet.Select;
+  export import Sidebar = Grommet.Sidebar;
+  export import SkipLinkAnchor = Grommet.SkipLinkAnchor;
+  export import SkipLinks = Grommet.SkipLinks;
+  export import SocialShare = Grommet.SocialShare;
+  export import Split = Grommet.Split;
+  export import SunBurst = Grommet.SunBurst;
+  export import SVGIcon = Grommet.SVGIcon;
+  export import Tab = Grommet.Tab;
+  export import Table = Grommet.Table;
+  export import TableHeader = Grommet.TableHeader;
+  export import TableRow = Grommet.TableRow;
+  export import Tabs = Grommet.Tabs;
+  export import TextInput = Grommet.TextInput;
+  export import Tile = Grommet.Tile;
+  export import Tiles = Grommet.Tiles;
+  export import Timestamp = Grommet.Timestamp;
+  export import Tip = Grommet.Tip;
+  export import Title = Grommet.Title;
+  export import Toast = Grommet.Toast;
+  export import Topology = Grommet.Topology;
+  export import Value = Grommet.Value;
+  export import Video = Grommet.Video;
+  export import WorldMap = Grommet.WorldMap;
+}
+
 // tslint:disable forbidden-types
 declare namespace Grommet {
   interface AccordionProps extends React.Props<Accordion> {
@@ -132,6 +202,7 @@ declare namespace Grommet {
     textAlign?: 'left' | 'center' | 'right';
     texture?: React.ReactNode | string;
     wrap?: boolean;
+    onFocus?: Function;
   }
   export class Box extends React.Component<BoxProps<Box>, any> {
     context: GrommetContextTypes.Intl;
@@ -255,7 +326,7 @@ declare namespace Grommet {
     fixed?: boolean;
     float?: boolean;
     primary?: boolean;
-    size: 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large';
   }
   export class Footer extends React.Component<FooterProps, any> {
     render(): JSX.Element;
@@ -264,7 +335,7 @@ declare namespace Grommet {
   interface FormProps extends React.Props<Form> {
     compact?: boolean;
     fill?: boolean;
-    onSubmit: Function;
+    onSubmit?: Function;
     pad?: GrommetCustomTypes.FormPadding | {
       horizontal?: GrommetCustomTypes.FormPadding;
       vertical?: GrommetCustomTypes.FormPadding;
@@ -303,14 +374,6 @@ declare namespace Grommet {
     render(): JSX.Element;
   }
 
-  interface GrommetProps extends React.Props<Grommet> {
-    children?: React.ReactNode;
-    className?: string;
-  }
-  export class Grommet extends React.Component<GrommetProps, any> {
-    render(): JSX.Element;
-  }
-
   interface HeaderProps extends BoxProps<Header> {
     fixed?: boolean;
     float?: boolean;
@@ -335,7 +398,7 @@ declare namespace Grommet {
   }
 
   interface HeadlineProps extends React.Props<Headline> {
-    align: 'start' | 'center' | 'end';
+    align?: 'start' | 'center' | 'end';
     margin?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'xlarge';
     strong?: boolean;
@@ -446,7 +509,7 @@ declare namespace Grommet {
   }
 
   interface LoginFormProps extends React.Props<LoginForm> {
-    align: 'start' | 'center' | 'end' | 'stretch';
+    align?: 'start' | 'center' | 'end' | 'stretch';
     defaultValues?: {
       username?: string;
       rememberMe?: boolean;
@@ -727,7 +790,6 @@ declare namespace Grommet {
   }
 
   interface SplitProps extends React.Props<Split> {
-    children: React.ReactNode[];
     fixed?: boolean;
     flex?: 'left' | 'right' | 'both';
     onResponsive?: Function;
