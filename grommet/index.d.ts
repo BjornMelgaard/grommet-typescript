@@ -6,6 +6,270 @@
 
 /// <reference types="react" />
 
+declare module "grommet/components/App" {
+  export default Grommet.App;
+}
+
+declare module "grommet/components/Accordion" {
+  export default Grommet.Accordion;
+}
+
+declare module "grommet/components/AccordionPanel" {
+  export default Grommet.AccordionPanel;
+}
+
+declare module "grommet/components/Anchor" {
+  export default Grommet.Anchor;
+}
+
+declare module "grommet/components/Animate" {
+  export default Grommet.Animate;
+}
+
+declare module "grommet/components/Article" {
+  export default Grommet.Article;
+}
+
+declare module "grommet/components/Box" {
+  export default Grommet.Box;
+}
+
+declare module "grommet/components/Button" {
+  export default Grommet.Button;
+}
+
+declare module "grommet/components/Card" {
+  export default Grommet.Card;
+}
+
+declare module "grommet/components/Carousel" {
+  export default Grommet.Carousel;
+}
+
+declare module "grommet/components/CheckBox" {
+  export default Grommet.CheckBox;
+}
+
+declare module "grommet/components/Columns" {
+  export default Grommet.Columns;
+}
+
+declare module "grommet/components/DateTime" {
+  export default Grommet.DateTime;
+}
+
+declare module "grommet/components/Distribution" {
+  export default Grommet.Distribution;
+}
+
+declare module "grommet/components/Footer" {
+  export default Grommet.Footer;
+}
+
+declare module "grommet/components/FormattedMessage" {
+  export default Grommet.FormattedMessage;
+}
+
+declare module "grommet/components/Form" {
+  export default Grommet.Form;
+}
+
+declare module "grommet/components/FormField" {
+  export default Grommet.FormField;
+}
+
+declare module "grommet/components/FormFields" {
+  export default Grommet.FormFields;
+}
+
+declare module "grommet/components/Header" {
+  export default Grommet.Header;
+}
+
+declare module "grommet/components/Heading" {
+  export default Grommet.Heading;
+}
+
+declare module "grommet/components/Headline" {
+  export default Grommet.Headline;
+}
+
+declare module "grommet/components/Hero" {
+  export default Grommet.Hero;
+}
+
+declare module "grommet/components/Image" {
+  export default Grommet.Image;
+}
+
+declare module "grommet/components/Label" {
+  export default Grommet.Label;
+}
+
+declare module "grommet/components/Layer" {
+  export default Grommet.Layer;
+}
+
+declare module "grommet/components/Legend" {
+  export default Grommet.Legend;
+}
+
+declare module "grommet/components/List" {
+  export default Grommet.List;
+}
+
+declare module "grommet/components/ListItem" {
+  export default Grommet.ListItem;
+}
+
+declare module "grommet/components/LoginForm" {
+  export default Grommet.LoginForm;
+}
+
+declare module "grommet/components/Map" {
+  export default Grommet.Map;
+}
+
+declare module "grommet/components/Markdown" {
+  export default Grommet.Markdown;
+}
+
+declare module "grommet/components/Menu" {
+  export default Grommet.Menu;
+}
+
+declare module "grommet/components/Meter" {
+  export default Grommet.Meter;
+}
+
+declare module "grommet/components/Notification" {
+  export default Grommet.Notification;
+}
+
+declare module "grommet/components/NumberInput" {
+  export default Grommet.NumberInput;
+}
+
+declare module "grommet/components/Paragraph" {
+  export default Grommet.Paragraph;
+}
+
+declare module "grommet/components/Quote" {
+  export default Grommet.Quote;
+}
+
+declare module "grommet/components/RadioButton" {
+  export default Grommet.RadioButton;
+}
+
+declare module "grommet/components/Search" {
+  export default Grommet.Search;
+}
+
+declare module "grommet/components/SearchInput" {
+  export default Grommet.SearchInput;
+}
+
+declare module "grommet/components/Section" {
+  export default Grommet.Section;
+}
+
+declare module "grommet/components/Select" {
+  export default Grommet.Select;
+}
+
+declare module "grommet/components/Sidebar" {
+  export default Grommet.Sidebar;
+}
+
+declare module "grommet/components/SkipLinkAnchor" {
+  export default Grommet.SkipLinkAnchor;
+}
+
+declare module "grommet/components/SkipLinks" {
+  export default Grommet.SkipLinks;
+}
+
+declare module "grommet/components/SocialShare" {
+  export default Grommet.SocialShare;
+}
+
+declare module "grommet/components/Split" {
+  export default Grommet.Split;
+}
+
+declare module "grommet/components/SunBurst" {
+  export default Grommet.SunBurst;
+}
+
+declare module "grommet/components/SVGIcon" {
+  export default Grommet.SVGIcon;
+}
+
+declare module "grommet/components/Tab" {
+  export default Grommet.Tab;
+}
+
+declare module "grommet/components/Table" {
+  export default Grommet.Table;
+}
+
+declare module "grommet/components/TableHeader" {
+  export default Grommet.TableHeader;
+}
+
+declare module "grommet/components/TableRow" {
+  export default Grommet.TableRow;
+}
+
+declare module "grommet/components/Tabs" {
+  export default Grommet.Tabs;
+}
+
+declare module "grommet/components/TextInput" {
+  export default Grommet.TextInput;
+}
+
+declare module "grommet/components/Tile" {
+  export default Grommet.Tile;
+}
+
+declare module "grommet/components/Tiles" {
+  export default Grommet.Tiles;
+}
+
+declare module "grommet/components/Timestamp" {
+  export default Grommet.Timestamp;
+}
+
+declare module "grommet/components/Tip" {
+  export default Grommet.Tip;
+}
+
+declare module "grommet/components/Title" {
+  export default Grommet.Title;
+}
+
+declare module "grommet/components/Toast" {
+  export default Grommet.Toast;
+}
+
+declare module "grommet/components/Topology" {
+  export default Grommet.Topology;
+}
+
+declare module "grommet/components/Value" {
+  export default Grommet.Value;
+}
+
+declare module "grommet/components/Video" {
+  export default Grommet.Video;
+}
+
+declare module "grommet/components/WorldMap" {
+  export default Grommet.WorldMap;
+}
+
 declare module "grommet/components" {
   export import Accordion = Grommet.Accordion;
   export import AccordionPanel = Grommet.AccordionPanel;
@@ -43,7 +307,6 @@ declare module "grommet/components" {
   export import Meter = Grommet.Meter;
   export import Notification = Grommet.Notification;
   export import NumberInput = Grommet.NumberInput;
-  export import Object = Grommet.Object;
   export import Paragraph = Grommet.Paragraph;
   export import Quote = Grommet.Quote;
   export import RadioButton = Grommet.RadioButton;
