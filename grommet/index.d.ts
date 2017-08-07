@@ -214,7 +214,7 @@ declare module "grommet/components/Table" {
   export default Grommet.Table;
 }
 
-declare module "grommet/components/TableHeader" {
+declare module "grommet/comsponents/TableHeader" {
   export default Grommet.TableHeader;
 }
 
