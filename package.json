@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "TypeScript bindings for the grommet-ux library",
   "main": "index.js",
+  "typings": "grommet/index.d.ts",
   "repository": {
     "url": "https://github.com/RyanCCollins/grommet-typescript",
     "type": "git"
